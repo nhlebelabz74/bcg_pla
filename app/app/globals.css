@@ -1,0 +1,267 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * BCG Platinion palette: #0ECA91 green, #8AD9BC mint, #000000 black, #707070 grey, #F7EFF1 blush.
+ * Contrast rules are in plan.md under Frontend, Colour. Green and mint never carry text or thin
+ * lines on blush; light mode uses --brand-ink (#055A3F, 7.3:1 on blush) for those.
+ */
+
+@theme inline {
+  --font-heading: var(--font-mono);
+  --font-mono: var(--font-mono);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --color-brand-ink: var(--brand-ink);
+  --color-flag: var(--flag);
+  --color-flag-foreground: var(--flag-foreground);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+  --color-chart-label: var(--chart-label);
+  --color-chart-marker-foreground: var(--chart-marker-foreground);
+  --color-chart-marker-border: var(--chart-marker-border);
+  --color-chart-marker-background: var(--chart-marker-background);
+  --color-chart-tooltip-muted: var(--chart-tooltip-muted);
+  --color-chart-tooltip-foreground: var(--chart-tooltip-foreground);
+  --color-chart-tooltip-background: var(--chart-tooltip-background);
+  --color-chart-grid: var(--chart-grid);
+  --color-chart-crosshair: var(--chart-crosshair);
+  --color-chart-foreground-muted: var(--chart-foreground-muted);
+  --color-chart-foreground: var(--chart-foreground);
+  --color-chart-background: var(--chart-background);
+  --color-legend: var(--legend);
+  --color-legend-foreground: var(--legend-foreground);
+  --color-legend-muted: var(--legend-muted);
+  --color-legend-muted-foreground: var(--legend-muted-foreground);
+  --color-legend-track: var(--legend-track);
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+:root {
+  --radius: 0;
+  --background: #f7eff1;
+  --foreground: #000000;
+  --card: #fcf8f9;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: #0eca91;
+  --primary-foreground: #000000;
+  --secondary: #ece2e5;
+  --secondary-foreground: #000000;
+  --muted: #ece2e5;
+  --muted-foreground: #5e5e5e;
+  --accent: #ece2e5;
+  --accent-foreground: #000000;
+  --destructive: #000000;
+  --border: #dccfd3;
+  --input: #707070;
+  --ring: #055a3f;
+  --brand-ink: #055a3f;
+  --flag: #000000;
+  --flag-foreground: #f7eff1;
+
+  /* Series: RFID is green ink, ERP is grey, the count is black in light mode. */
+  --chart-1: #055a3f;
+  --chart-2: #707070;
+  --chart-3: #000000;
+  --chart-4: #0eca91;
+  --chart-5: #8ad9bc;
+
+  --chart-background: var(--card);
+  --chart-foreground: #000000;
+  --chart-foreground-muted: #5e5e5e;
+  --chart-line-primary: var(--chart-1);
+  --chart-line-secondary: var(--chart-2);
+  --chart-crosshair: #707070;
+  --chart-grid: #e2d6da;
+  --chart-brush-border: var(--chart-grid);
+  --chart-tooltip-background: var(--popover);
+  --chart-tooltip-foreground: var(--popover-foreground);
+  --chart-tooltip-muted: var(--muted-foreground);
+  --chart-indicator-color: var(--chart-1);
+  --chart-indicator-secondary-color: var(--chart-2);
+  --chart-marker-background: var(--popover);
+  --chart-marker-border: var(--border);
+  --chart-marker-foreground: #000000;
+  --chart-label: #5e5e5e;
+  --chart-segment-background: var(--muted);
+  --chart-segment-line: var(--border);
+  --legend: var(--card);
+  --legend-foreground: var(--foreground);
+  --legend-muted: var(--muted);
+  --legend-muted-foreground: var(--muted-foreground);
+  --legend-track: var(--muted);
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #f7eff1;
+  --card: #0a0a0a;
+  --card-foreground: #f7eff1;
+  --popover: #141414;
+  --popover-foreground: #f7eff1;
+  --primary: #0eca91;
+  --primary-foreground: #000000;
+  --secondary: #1a1a1a;
+  --secondary-foreground: #f7eff1;
+  --muted: #1a1a1a;
+  --muted-foreground: #8c8c8c;
+  --accent: #10241d;
+  --accent-foreground: #f7eff1;
+  --destructive: #f7eff1;
+  --border: #262626;
+  --input: #707070;
+  --ring: #0eca91;
+  --brand-ink: #0eca91;
+  --flag: #f7eff1;
+  --flag-foreground: #000000;
+
+  /* Series: RFID is green, ERP is grey, the count is mint in dark mode. */
+  --chart-1: #0eca91;
+  --chart-2: #707070;
+  --chart-3: #8ad9bc;
+  --chart-4: #0eca91;
+  --chart-5: #8ad9bc;
+
+  --chart-background: var(--card);
+  --chart-foreground: #f7eff1;
+  --chart-foreground-muted: #8c8c8c;
+  --chart-crosshair: #707070;
+  --chart-grid: #222222;
+  --chart-marker-foreground: #f7eff1;
+  --chart-label: #8c8c8c;
+  --chart-brush-border: var(--chart-grid);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-mono;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior: none;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overscroll-behavior: none;
+  }
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+  button,
+  a,
+  [role="button"],
+  [role="radio"] {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Press feedback on every button: scale on pointer-down, 160 ms ease-out. */
+@layer components {
+  [data-slot="button"],
+  [data-slot="toggle-group-item"] {
+    /* Press feedback on the strong ease-out; colour changes on plain ease. */
+    transition:
+      transform 160ms var(--ease-out-strong),
+      background-color 150ms ease,
+      color 150ms ease,
+      border-color 150ms ease;
+  }
+  [data-slot="button"]:active:not(:disabled),
+  [data-slot="toggle-group-item"]:active {
+    transform: scale(0.97);
+  }
+}
+
+/* New rows in a live list fade in once. Movement goes when the user asks for reduced motion. */
+@keyframes row-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+.row-in {
+  animation: row-in 220ms var(--ease-out-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @keyframes row-in {
+    from {
+      opacity: 0;
+    }
+  }
+  [data-slot="button"]:active:not(:disabled),
+  [data-slot="toggle-group-item"]:active {
+    transform: none;
+  }
+}
+
+/*
+ * Theme switch: the toggle reveals the new theme with a clip-path circle on the
+ * new snapshot (see components/theme-toggle.tsx). The browser's own crossfade is
+ * turned off, so the old snapshot simply sits still underneath it.
+ */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+}
+::view-transition-new(root) {
+  z-index: 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+  /* Popovers and dialogs keep their fade and lose the zoom and slide. */
+  [class*="zoom-in-"],
+  [class*="zoom-out-"],
+  [class*="slide-in-from-"] {
+    --tw-enter-scale: 1;
+    --tw-exit-scale: 1;
+    --tw-enter-translate-x: 0;
+    --tw-enter-translate-y: 0;
+  }
+}

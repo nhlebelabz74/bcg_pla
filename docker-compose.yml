@@ -1,0 +1,22 @@
+# The demo server on this machine, published by the wits-tats Cloudflare tunnel.
+# The tunnel runs in Docker and reaches the host at host.docker.internal (172.17.0.1),
+# so the app listens on the Docker bridge, port 3010. Nothing else on the network sees it.
+#
+#   docker compose up -d --build     start or update
+#   docker compose logs -f app       watch scans arrive
+#   docker compose down              stop (the database volume stays)
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "172.17.0.1:3010:3000"
+    environment:
+      CONTROL_KEY: ${CONTROL_KEY:?set CONTROL_KEY in .env}
+      PUBLIC_URL: https://bcg-pla.banzilenhlebela.co.za
+    volumes:
+      - bagdata:/data
+
+volumes:
+  bagdata:

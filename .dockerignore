@@ -1,0 +1,8 @@
+app/.next
+app/node_modules
+.claude
+*.db
+.env
+inventory_old.db
+.playwright-mcp
+__pycache__

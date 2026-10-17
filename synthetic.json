@@ -1,0 +1,65 @@
+{
+  "label": "Synthetic data for illustration",
+  "weekly_counts": {
+    "site": "WH1",
+    "limit_pct": 0.5,
+    "weeks": [
+      {
+        "week_offset": -8,
+        "book": 1240,
+        "counted": 1209,
+        "missing": 34,
+        "found": 3
+      },
+      {
+        "week_offset": -7,
+        "book": 1185,
+        "counted": 1160,
+        "missing": 27,
+        "found": 2
+      },
+      {
+        "week_offset": -6,
+        "book": 1302,
+        "counted": 1281,
+        "missing": 23,
+        "found": 2
+      },
+      {
+        "week_offset": -5,
+        "book": 1268,
+        "counted": 1255,
+        "missing": 15,
+        "found": 2
+      },
+      {
+        "week_offset": -4,
+        "book": 1221,
+        "counted": 1216,
+        "missing": 6,
+        "found": 1
+      },
+      {
+        "week_offset": -3,
+        "book": 1290,
+        "counted": 1286,
+        "missing": 5,
+        "found": 1
+      },
+      {
+        "week_offset": -2,
+        "book": 1247,
+        "counted": 1244,
+        "missing": 3,
+        "found": 0
+      },
+      {
+        "week_offset": -1,
+        "book": 1312,
+        "counted": 1310,
+        "missing": 3,
+        "found": 1
+      }
+    ]
+  }
+}
